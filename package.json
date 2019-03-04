@@ -1,0 +1,29 @@
+{
+  "name": "alternate-side-parking-calendar-bot",
+  "version": "1.0.0",
+  "description": "converts NYCASP tweets into calendar events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "asp",
+    "bot",
+    "nycasp",
+    "calendar"
+  ],
+  "author": "elan trybuch",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^27.0.0",
+    "moment": "^2.24.0",
+    "puppeteer": "^1.12.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.2.0"
+  }
+}
