@@ -8,7 +8,7 @@ const key = {
   'type': process.env.TYPE,
   'project_id': process.env.PROJECT_ID,
   'private_key_id': process.env.PRIVATE_KEY_ID,
-  'private_key': process.env.PRIVATE_KEY.replace(new RegExp('\\\\n', '\g'), '\n'),
+  'private_key': process.env.PRIVATE_KEY.replace(new RegExp('\\\\n', 'g'), '\n'),
   'client_email': process.env.CLIENT_EMAIL,
   'client_id': process.env.CLIENT_ID,
   'auth_uri': process.env.AUTH_URI,
@@ -18,7 +18,7 @@ const key = {
   'url': process.env.URL,
 };
 const scopes = ['https://www.googleapis.com/auth/calendar'];
-const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
+const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes);
 const calendar = google.calendar('v3');
 
 // process.env.GOOGLE_APPLICATION_CREDENTIALS = key
@@ -60,21 +60,20 @@ rp(key.url)
       key.private_key,
       ['https://www.googleapis.com/auth/calendar']);
     //authenticate request
-    jwtClient.authorize(function (tokens) {
+    jwtClient.authorize(function () {
       calendar.events.insert({
         auth: jwt,
         calendarId: key.client_email,
         resource: event,
       }, (err, event) => {
         //handle error
-        console.log('event:', event);
-
+        console.warn('event:', event);
         if (err)
-          console.log('There was an error contacting the Calendar service: ' + err);
+          console.error('There was an error contacting the Calendar service: ' + err);
       });
     });
   })
   .catch((err) => {
     //handle error
-    console.log(err);
+    console.error(err);
   });
