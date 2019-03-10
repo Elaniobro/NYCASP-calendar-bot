@@ -4,9 +4,17 @@
   "description": "converts NYCASP tweets into calendar events",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint **/*.js --ignore-pattern node_modules/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "keywords": [
+    "alternate side parking",
+    "parking",
     "asp",
     "bot",
     "nycasp",
@@ -24,6 +32,8 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
-    "dotenv": "^6.2.0"
+    "dotenv": "^6.2.0",
+    "eslint": "^5.15.1",
+    "husky": "^1.3.1"
   }
 }
