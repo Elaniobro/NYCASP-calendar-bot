@@ -8,7 +8,7 @@ const key = {
   'type': process.env.TYPE,
   'project_id': process.env.PROJECT_ID,
   'private_key_id': process.env.PRIVATE_KEY_ID,
-  'private_key': process.env.PRIVATE_KEY.replace(new RegExp("\\\\n", "\g"), "\n"),
+  'private_key': process.env.PRIVATE_KEY.replace(new RegExp('\\\\n', '\g'), '\n'),
   'client_email': process.env.CLIENT_EMAIL,
   'client_id': process.env.CLIENT_ID,
   'auth_uri': process.env.AUTH_URI,
@@ -19,7 +19,7 @@ const key = {
 };
 const scopes = ['https://www.googleapis.com/auth/calendar'];
 const jwt = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
-const calendar = google.calendar("v3");
+const calendar = google.calendar('v3');
 
 // process.env.GOOGLE_APPLICATION_CREDENTIALS = key
 
@@ -27,15 +27,15 @@ rp(key.url)
   .then((data) => {
     //success!
     const str = $('ol > li .tweet-text', data).first().text();
-    console.log(str);
     const strRegex = /suspended/g;
+
     if (!str.match(strRegex)) return;
 
     const d = new Date();
     const dateRegex = /(January|February|March|April|May|June|July|August|September|October|November|December)\s[0-9]{1,2}/g;
     const tweet = str.match(dateRegex);
-    const dateArr = tweet[0].split(" ");
-    const month = moment().month(dateArr[0]).format("M");
+    const dateArr = tweet[0].split(' ');
+    const month = moment().month(dateArr[0]).format('M');
     const day = dateArr[1];
     const fullDate = moment(new Date(`${d.getFullYear()}-${month}-${day}`)).format('YYYY-MM-DD');
 
