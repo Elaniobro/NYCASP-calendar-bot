@@ -4,8 +4,9 @@
   "description": "converts NYCASP tweets into calendar events",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon -r esm index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint **/*.js --ignore-pattern node_modules/"
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/"
   },
   "husky": {
     "hooks": {
@@ -20,20 +21,31 @@
     "nycasp",
     "calendar"
   ],
-  "author": "elan trybuch",
-  "license": "MIT",
-  "dependencies": {
-    "googleapis": "^27.0.0",
-    "moment": "^2.24.0",
-    "puppeteer": "^1.12.2",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+  "author": {
+    "name": "Elan Trybuch",
+    "email": "elan@trybuch.com",
+    "url": "https://elan.trybuch.com"
   },
-  "devDependencies": {
-    "axios": "^0.18.0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Elaniobro/NYCASP-calendar-bot/issues"
+  },
+  "homepage": "https://github.com/Elaniobro/NYCASP-calendar-bot#readme",
+  "dependencies": {
+    "axios": "^0.18.1",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^6.2.0",
     "eslint": "^5.15.1",
-    "husky": "^1.3.1"
+    "esm": "^3.2.18",
+    "express": "^4.16.4",
+    "googleapis": "^27.0.0",
+    "husky": "^1.3.1",
+    "moment": "^2.24.0",
+    "node-cron": "^2.0.3",
+    "puppeteer": "^1.12.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
