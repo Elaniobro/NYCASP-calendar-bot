@@ -4,6 +4,7 @@
   "description": "converts NYCASP tweets into calendar events",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -r esm index.js",
     "start": "nodemon -r esm index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/"
