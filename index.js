@@ -2,11 +2,12 @@ import express from 'express';
 import './cron';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (res) => {
   res.send('Tweet');
 });
 
-app.listen(2093, () => {
-  console.log('Example App running on port http://localhost:2093'); /* eslint-disable-line */
+app.listen(PORT, () => {
+  console.log(`Example App running on port http://localhost:${PORT}`); /* eslint-disable-line */
 });
